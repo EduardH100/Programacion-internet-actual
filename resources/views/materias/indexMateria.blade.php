@@ -6,15 +6,18 @@
   Listado de materias
 </h1> 
 
-<a href="{{ action('MateriaController@create')}}" class="btn btn-success">Nueva Materia</a>
+<!-- <a href="{{ action('MateriaController@create')}}" class="btn btn-success">Nueva Materia</a> -->
 <a href="{{ route('materias.create')}}" class="btn btn-success">Nueva Materia</a>
 
 @if($materias->count() == 0)
 <div class="alert-warning">
   No Tienes Materias Registradas
 </div>
+@endif
+@if($materias->count() != 0)
 <table class="table">
   <thead>
+    <th>ID</th>
     <th>Materia</th>
     <th>CRN</th>
     <th>SECCION</th>
@@ -24,6 +27,7 @@
   <tbody>
     @foreach($materias as $materia)
     <tr>
+      <td>{{ $materia->id }}</td>
       <td>{{ $materia->materia }}</td>
       <td>{{ $materia->crn }}</td>
       <td>{{ $materia->seccion}}</td>

@@ -28,6 +28,7 @@ Route::resource('dependencias', 'DependenciaController', [ 'except' => ['edit', 
 */
 
 Route::resource('materias', 'MateriaController');
+Route::resource('alumnos', 'AlumnoController');
 
 Route::get('/inicio', function(){
   return view('bienvenida');

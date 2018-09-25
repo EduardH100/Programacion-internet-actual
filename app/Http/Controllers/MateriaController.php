@@ -36,8 +36,22 @@ class MateriaController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
-				//$materias = $request->materias
+        
+				Materia::create($request->all());
+			
+// 			$materia = new Materia();
+			
+// 			$materia->materia = $request->input('materia');
+// 			$materia->crn = $request->input('crn');
+// 			$materia->seccion = $request->input('seccion');
+// 			$materia->horario = $request->input('horario');
+			
+// 			//insertar a base de datos
+// 			$materia->save();
+			
+				//redireccionar
+				return redirect()->route('materias.index');
+  
     }
 
     /**
@@ -49,8 +63,8 @@ class MateriaController extends Controller
     public function show($id)
     {
         $nombre = 'Programación para Internet';
-  return view('materias.showMateria', compact('id','nombre'));
-    //->with(['id' => $id, 'nombre' => $nombre]);
+  			return view('materias.showMateria', compact('id','nombre'));
+    		//->with(['id' => $id, 'nombre' => $nombre]);
     }
 
     /**
